@@ -1,13 +1,12 @@
-import {useState} from 'react'
+import {useState, useCallback} from 'react'
 
 const EstadoPopUp = () => {
     const [estado, cambiarEstado] = useState(false);
 
-    const setEstado = (nuevoEstado: boolean) => {
-        cambiarEstado(nuevoEstado)
-    }
+    const setTrue = useCallback(() => cambiarEstado(true), [])
+    const setFalse = useCallback(() => cambiarEstado(false), [])
 
-    return {estado, setEstado}
+    return {estado, setTrue, setFalse}
 }
 
 export default EstadoPopUp

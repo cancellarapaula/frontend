@@ -9,19 +9,18 @@ import EstadoPopUp from "../hooks/estadoModal"
 
 
 const Modal = () => {
+    const {estado, setTrue, setFalse} = EstadoPopUp()
+    console.log("Componente Modal:", estado)
     return (
         <>
-            {EstadoPopUp().estado &&
+            {estado &&
                 <Overlay>
                     <ContenedorModal>
                         <EncabezadoModal>
                             <h3>Publicar proyecto</h3>
                         </EncabezadoModal>
-                        <BotonCerrar onClick={() => {
-                            {
-                                EstadoPopUp().setEstado(false)
-                            }
-                        }}><CloseIcon/></BotonCerrar>
+                        <BotonCerrar onClick={ setFalse
+                        }><CloseIcon/></BotonCerrar>
                         <form className="input">
                             <span className="component-input-label">Creador del proyecto</span>
                             <input className="component-input-input"/>

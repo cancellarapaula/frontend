@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import "./publicar.css";
 import CreateIcon from '@mui/icons-material/Create';
 import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
@@ -7,7 +7,9 @@ import EstadoPopUp from "../hooks/estadoModal";
 
 export default function Publicar() {
 
+    const {estado, setTrue, setFalse} = EstadoPopUp()
 
+    console.log("Componente Publicar:", estado)
     return (
         <>
             <div>
@@ -26,10 +28,8 @@ export default function Publicar() {
 
                             <div className="publicarOpcion">
                                 <TipsAndUpdatesIcon htmlColor="tomato" className="shareIcon"/>
-                                <button className="shareOptionText" onClick={() => {
-                                    EstadoPopUp().setEstado(!(EstadoPopUp().estado))
-
-                                }}>Publicar proyecto
+                                <button className="shareOptionText" onClick={setTrue}>Publicar
+                                    proyecto
                                 </button>
                             </div>
                             <div className="publicarOpcion">
