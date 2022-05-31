@@ -6,7 +6,7 @@ export default function Encabezado() {
            return (
             <div className="encabezadoContainer">
                 <div>
-                    <p>12345</p>
+                    <p></p>
                 </div>
             </div>
             );

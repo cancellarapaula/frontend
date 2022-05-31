@@ -1,13 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import "./publicar.css";
 import CreateIcon from '@mui/icons-material/Create';
 import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
 import {Modal} from '../../components/modal/Modal';
-import EstadoPopUp from "../hooks/estadoModal";
 
 export default function Publicar() {
 
-    const {estado, setTrue, setFalse} = EstadoPopUp()
+    const [estado, cambiarEstado] = useState(false);
 
     console.log("Componente Publicar:", estado)
     return (
@@ -28,7 +27,7 @@ export default function Publicar() {
 
                             <div className="publicarOpcion">
                                 <TipsAndUpdatesIcon htmlColor="tomato" className="shareIcon"/>
-                                <button className="shareOptionText" onClick={setTrue}>Publicar
+                                <button className="shareOptionText" onClick={()=>{cambiarEstado(!estado)}}>Publicar
                                     proyecto
                                 </button>
                             </div>
@@ -38,10 +37,11 @@ export default function Publicar() {
                             </div>
 
                         </div>
-                    </div>
-                </div>
 
-                <Modal/>
+                    </div>
+
+                </div>
+                <Modal estado={estado} cambiarEstado={cambiarEstado}/>
 
             </div>
 

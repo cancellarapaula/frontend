@@ -8,7 +8,7 @@ export default function FeedCentral() {
             <div className="feedWrapper">
                 <Publicar/>
             </div>
-            <Modal/>
+
         </div>
     );
 }

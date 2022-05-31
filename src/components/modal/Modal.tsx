@@ -5,13 +5,16 @@ import VideoCameraBackIcon from '@mui/icons-material/VideoCameraBack';
 import PhotoIcon from '@mui/icons-material/Photo';
 import "./modal.css";
 import styled from "styled-components";
-import EstadoPopUp from "../hooks/estadoModal"
 
+interface Props {
+    estado: boolean
+    cambiarEstado: React.Dispatch<React.SetStateAction<boolean>>
+}
 
-const Modal = () => {
-    const {estado, setTrue, setFalse} = EstadoPopUp()
-    console.log("Componente Modal:", estado)
+const Modal = ({estado, cambiarEstado}: Props) => {
+
     return (
+
         <>
             {estado &&
                 <Overlay>
@@ -19,8 +22,7 @@ const Modal = () => {
                         <EncabezadoModal>
                             <h3>Publicar proyecto</h3>
                         </EncabezadoModal>
-                        <BotonCerrar onClick={ setFalse
-                        }><CloseIcon/></BotonCerrar>
+                        <BotonCerrar onClick={()=>{cambiarEstado(false)}}><CloseIcon/></BotonCerrar>
                         <form className="input">
                             <span className="component-input-label">Creador del proyecto</span>
                             <input className="component-input-input"/>
