@@ -1,6 +1,6 @@
 import "./feedCentral.css";
 import Publicar from "../publicaciones/Publicar";
-import Modal from "../modal/Modal";
+import {Modal} from "../modal/Modal";
 
 export default function FeedCentral() {
     return (
@@ -8,7 +8,6 @@ export default function FeedCentral() {
             <div className="feedWrapper">
                 <Publicar/>
             </div>
-            <Modal />
         </div>
     );
 }

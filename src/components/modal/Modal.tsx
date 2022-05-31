@@ -1,22 +1,26 @@
-import React from 'react';
+import * as React from "react"
 import CloseIcon from '@mui/icons-material/Close';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import VideoCameraBackIcon from '@mui/icons-material/VideoCameraBack';
 import PhotoIcon from '@mui/icons-material/Photo';
 import "./modal.css";
 import styled from "styled-components";
+import EstadoPopUp from "../hooks/estadoModal"
 
-const Modal = ({estado, cambiarestado}) => {
+
+const Modal = () => {
     return (
         <>
-            {estado &&
+            {EstadoPopUp().estado &&
                 <Overlay>
                     <ContenedorModal>
                         <EncabezadoModal>
                             <h3>Publicar proyecto</h3>
                         </EncabezadoModal>
                         <BotonCerrar onClick={() => {
-                            cambiarestado(false)
+                            {
+                                EstadoPopUp().setEstado(false)
+                            }
                         }}><CloseIcon/></BotonCerrar>
                         <form className="input">
                             <span className="component-input-label">Creador del proyecto</span>
@@ -58,7 +62,7 @@ const Modal = ({estado, cambiarestado}) => {
     )
 }
 
-export default Modal;
+export {Modal}
 
 const Overlay = styled.div`
   width: 100vw;
